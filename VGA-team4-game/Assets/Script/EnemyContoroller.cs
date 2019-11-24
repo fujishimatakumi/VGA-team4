@@ -8,6 +8,7 @@ public class EnemyContoroller : MonoBehaviour
 {
     [SerializeField] int m_enemyHP = 100;
     [SerializeField] int m_score = 100;
+    [SerializeField] float m_eAtack = 1f;
     [SerializeField] GameObject m_target;
     [SerializeField] float m_targetMargin = 0.1f;
     [SerializeField] Animator m_animater;
