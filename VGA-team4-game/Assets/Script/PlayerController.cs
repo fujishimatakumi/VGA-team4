@@ -6,6 +6,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] float m_moveSpead;
+    [SerializeField] int m_helth = 100;
+    [SerializeField] int m_level = 1;
+    [SerializeField] float m_Atack = 1f;
     Rigidbody m_rb;
     // Start is called before the first frame update
     void Start()
