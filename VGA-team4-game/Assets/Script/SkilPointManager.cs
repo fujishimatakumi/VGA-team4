@@ -8,12 +8,12 @@ public class SkilPointManager : MonoBehaviour
     [SerializeField] float m_atackMaguni = 1.1f;
     [SerializeField] float m_speedMaguni = 1.1f;
     [SerializeField] int m_skilPoint = 0;
-    GameObject m_playerData;
-    Component m_player;
+    //GameObject m_playerData;
+    //Component m_player;
     // Start is called before the first frame update
     void Start()
     {
-       
+        DontDestroyOnLoad(this);  
     }
 
     // Update is called once per frame
