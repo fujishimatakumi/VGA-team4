@@ -31,7 +31,7 @@ public class SkilPointManager : MonoBehaviour
 
     public void AddHelthEX()
     {
-        if (m_skilPoint < 0)
+        if (m_skilPoint > 0)
         {
             m_helthEX = (int)Mathf.Ceil(m_helthEX * m_helthRate);
         }
