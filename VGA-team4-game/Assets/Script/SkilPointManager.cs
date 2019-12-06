@@ -11,6 +11,7 @@ public class SkilPointManager : MonoBehaviour
     [SerializeField] public int m_skilPoint = 0;
     [SerializeField] public float m_helthRate = 1f;
     [SerializeField] public float m_atackRate = 1f;
+    [SerializeField] public float m_speedRate = 1f;
     //GameObject m_playerData;
     //Component m_player;
     // Start is called before the first frame update
@@ -43,6 +44,14 @@ public class SkilPointManager : MonoBehaviour
         if (m_skilPoint > 0)
         {
             m_atackMaguni = m_atackMaguni + m_atackRate;
+        }
+    }
+
+    public void AddSpeed()
+    {
+        if (m_skilPoint > 0)
+        {
+            m_speedMaguni = m_speedMaguni + m_speedRate;
         }
     }
 }
