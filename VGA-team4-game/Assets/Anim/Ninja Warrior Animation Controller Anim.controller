@@ -6,7 +6,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Ninja Warrior Animation Controller
+  m_Name: Ninja Warrior Animation Controller Anim
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Attack1Trigger
@@ -344,7 +344,7 @@ AnimatorStateMachine:
     m_Position: {x: -290, y: 130, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110240826}
-    m_Position: {x: -60, y: 48, z: 0}
+    m_Position: {x: -60, y: 50, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: 110135962}
