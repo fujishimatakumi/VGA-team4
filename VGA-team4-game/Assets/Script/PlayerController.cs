@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            m_anim.SetBool("Attack1Trigger", true);
+            m_anim.SetTrigger("Attack1Trigger");
         }
 
     }
