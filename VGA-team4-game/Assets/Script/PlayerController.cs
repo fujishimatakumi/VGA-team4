@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
+using UnityEngine.UI;
 
 
 [RequireComponent(typeof(Rigidbody))]
@@ -13,16 +14,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float m_Atack = 1f;
     Rigidbody m_rb;
     Animator m_anim;
-    GameObject m_skilPoint;
-    SkilPointManager m_manager;
+    [SerializeField] Slider m_HPslider;
+    //GameObject m_skilPoint;
+   // SkilPointManager m_manager;
     // Start is called before the first frame update
     void Start()
     {
         m_rb = GetComponent<Rigidbody>();
         m_anim = GetComponent<Animator>();
-        m_skilPoint = GameObject.Find("SkilPointManager");
-        m_manager = m_skilPoint.GetComponent<SkilPointManager>();
-        m_helth = m_helth + m_manager.m_helthEX;
+        m_HPslider.value = m_helth;
+       // m_skilPoint = GameObject.Find("SkilPointManager");
+     //   m_manager = m_skilPoint.GetComponent<SkilPointManager>();
+       // m_helth = m_helth + m_manager.m_helthEX;
     }
 
     // Update is called once per frame
