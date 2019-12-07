@@ -8,13 +8,13 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float m_moveSpead;
+    [SerializeField] float m_moveSpead = 1f;
     [SerializeField] int m_helth = 100;
     [SerializeField] int m_level = 1;
     [SerializeField] float m_Atack = 1f;
     Rigidbody m_rb;
     Animator m_anim;
-    [SerializeField] Slider m_HPslider;
+    [SerializeField] Slider m_HPslider = default;
     //GameObject m_skilPoint;
    // SkilPointManager m_manager;
     // Start is called before the first frame update
