@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody m_rb;
     Animator m_anim;
     [SerializeField] Slider m_HPslider = default;
+    [SerializeField] GameObject m_hitCollider;
     //GameObject m_skilPoint;
    // SkilPointManager m_manager;
     // Start is called before the first frame update
@@ -55,6 +56,16 @@ public class PlayerController : MonoBehaviour
         {
             m_anim.SetTrigger("Attack1Trigger");
         }
-
     }
+
+    public void ActivCollider()
+    {
+        m_hitCollider.SetActive(true);
+    }
+
+    public void EnableCollider()
+    {
+        m_hitCollider.SetActive(false);
+    }
+
 }
