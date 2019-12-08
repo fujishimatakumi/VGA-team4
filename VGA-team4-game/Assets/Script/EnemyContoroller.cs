@@ -43,6 +43,11 @@ public class EnemyContoroller : MonoBehaviour
         }
     }
 
+    public void UpDateSrider()
+    {
+        m_enemyHPSlider.value = m_enemyHP;
+    }
+
     public void DecreaseHelth()
     {
         m_enemyHP -= m_damage;
