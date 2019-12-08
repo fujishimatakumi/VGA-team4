@@ -14,7 +14,7 @@ public class EnemyContoroller : MonoBehaviour
     [SerializeField] float m_targetMargin = 0.1f;
     [SerializeField] Animator m_animater;
     [SerializeField] float m_enemySpeadMagni = 1f;
-    Slider m_enemyHPSlider;
+    [SerializeField] Slider m_enemyHPSlider;
     Vector3 m_targetPosition;
     NavMeshAgent m_navMesh;
     // Start is called before the first frame update
@@ -23,7 +23,7 @@ public class EnemyContoroller : MonoBehaviour
         m_navMesh = GetComponent<NavMeshAgent>();
         m_targetPosition = m_target.transform.position;
         m_navMesh.speed = m_navMesh.speed * m_enemySpeadMagni;
-        m_enemyHPSlider = GetComponentInChildren<Slider>();
+        //m_enemyHPSlider = GetComponentInChildren<Slider>();
         m_enemyHPSlider.maxValue = m_enemyHP;
     }
 
