@@ -65,6 +65,7 @@ public class PlayerController : MonoBehaviour
             GameObject ga = other.gameObject;
             EnemyContoroller ec = ga.GetComponent<EnemyContoroller>();
             ec.DecreaseHelth();
+            ec.UpDateSrider();
         }
     }
 
