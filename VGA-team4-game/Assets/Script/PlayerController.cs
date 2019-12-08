@@ -58,6 +58,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            GameObject ga = other.gameObject;
+            EnemyContoroller ec = ga.GetComponent<EnemyContoroller>();
+            ec.DecreaseHelth();
+        }
+    }
+
     public void ActivCollider()
     {
         m_hitCollider.SetActive(true);
