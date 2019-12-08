@@ -15,6 +15,7 @@ public class EnemyContoroller : MonoBehaviour
     [SerializeField] Animator m_animater;
     [SerializeField] float m_enemySpeadMagni = 1f;
     [SerializeField] Slider m_enemyHPSlider;
+    [SerializeField] int m_damage = 10;
     Vector3 m_targetPosition;
     NavMeshAgent m_navMesh;
     // Start is called before the first frame update
@@ -40,5 +41,10 @@ public class EnemyContoroller : MonoBehaviour
         {
             m_animater.SetFloat("Speed", m_navMesh.velocity.magnitude);
         }
+    }
+
+    public void DecreaseHelth()
+    {
+        m_enemyHP -= m_damage;
     }
 }
