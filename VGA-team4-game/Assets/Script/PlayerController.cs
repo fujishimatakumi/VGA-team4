@@ -14,8 +14,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float m_Atack = 1f;
     Rigidbody m_rb;
     Animator m_anim;
-    [SerializeField] Slider m_HPslider = default;
+    //[SerializeField] Slider m_HPslider = default;
     [SerializeField] GameObject m_hitCollider;
+    [SerializeField] Image m_im = default;
+
     //GameObject m_skilPoint;
    // SkilPointManager m_manager;
     // Start is called before the first frame update
@@ -23,7 +25,8 @@ public class PlayerController : MonoBehaviour
     {
         m_rb = GetComponent<Rigidbody>();
         m_anim = GetComponent<Animator>();
-        m_HPslider.value = m_helth;
+        m_im.fillAmount = m_helth;
+        //m_HPslider.value = m_helth;
        // m_skilPoint = GameObject.Find("SkilPointManager");
      //   m_manager = m_skilPoint.GetComponent<SkilPointManager>();
        // m_helth = m_helth + m_manager.m_helthEX;
@@ -79,4 +82,8 @@ public class PlayerController : MonoBehaviour
         m_hitCollider.SetActive(false);
     }
 
+    public void HitDamage(int damege)
+    {
+        m_im.fillAmount -= damege;
+    }
 }
