@@ -12,16 +12,18 @@ public class EnemyContoroller : MonoBehaviour
     [SerializeField] float m_eAtack = 1f;
     [SerializeField] GameObject m_target;
     [SerializeField] float m_targetMargin = 0.1f;
-    [SerializeField] Animator m_animater;
     [SerializeField] float m_enemySpeadMagni = 1f;
     [SerializeField] Slider m_enemyHPSlider;
     [SerializeField] int m_damage = 10;
+    [SerializeField] GameObject m_hitCollider;
+    Animator m_animater;
     Vector3 m_targetPosition;
     NavMeshAgent m_navMesh;
     // Start is called before the first frame update
     void Start()
     {
         m_navMesh = GetComponent<NavMeshAgent>();
+        m_animater = GetComponent<Animator>();
         m_targetPosition = m_target.transform.position;
         m_navMesh.speed = m_navMesh.speed * m_enemySpeadMagni;
         //m_enemyHPSlider = GetComponentInChildren<Slider>();
@@ -51,5 +53,15 @@ public class EnemyContoroller : MonoBehaviour
     public void DecreaseHelth()
     {
         m_enemyHP -= m_damage;
+    }
+
+    public void ActivCollider()
+    {
+        m_hitCollider.SetActive(true);
+    }
+
+    public void EnableCollider()
+    {
+        m_hitCollider.SetActive(false);
     }
 }
