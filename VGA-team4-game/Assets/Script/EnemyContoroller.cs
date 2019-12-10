@@ -37,6 +37,14 @@ public class EnemyContoroller : MonoBehaviour
         {
             m_targetPosition = m_target.transform.position;
             m_navMesh.SetDestination(m_targetPosition);
+            if (m_animater.GetBool("Atack"))
+            {
+                m_animater.SetBool("Atack", false);
+            }
+        }
+        else
+        {
+            m_animater.SetBool("Atack", true);
         }
 
         if (m_animater)
@@ -52,7 +60,16 @@ public class EnemyContoroller : MonoBehaviour
 
     public void DecreaseHelth()
     {
-        m_enemyHP -= m_damage;
+        if (m_enemyHP > 0)
+        {
+            m_enemyHP -= m_damage;
+            m_animater.SetTrigger("Damage");
+        }
+        else
+        {
+            m_animater.SetTrigger("Death");
+            Destroy(this, 3f);
+        }
     }
 
     public void ActivCollider()
