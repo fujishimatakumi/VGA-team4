@@ -463,10 +463,10 @@ MonoBehaviour:
   m_eAtack: 1
   m_target: {fileID: 1385102681}
   m_targetMargin: 0.1
-  m_animater: {fileID: 0}
   m_enemySpeadMagni: 1
   m_enemyHPSlider: {fileID: 0}
   m_damage: 10
+  m_hitCollider: {fileID: 0}
 --- !u!195 &1168553601
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1155,6 +1155,6 @@ PrefabInstance:
     - target: {fileID: 9500000, guid: 5a35c5f0a89b9654d897ccd7c8f81bd0, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 4329bbc6e0676ec44a6723608b828e4a, type: 2}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a35c5f0a89b9654d897ccd7c8f81bd0, type: 3}
