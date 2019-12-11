@@ -33,24 +33,16 @@ public class EnemyContoroller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(m_targetPosition, m_target.transform.position) > m_targetMargin)
+        if (Vector3.Distance(this.gameObject.transform.position, m_target.transform.position) > m_targetMargin)
         {
             m_targetPosition = m_target.transform.position;
             m_navMesh.SetDestination(m_targetPosition);
-            if (m_animater.GetBool("Atack"))
+            if (m_animater)
             {
-                m_animater.SetBool("Atack", false);
+                m_animater.SetFloat("Speed", m_navMesh.velocity.magnitude);
             }
         }
-        else
-        {
-            m_animater.SetBool("Atack", true);
-        }
-
-        if (m_animater)
-        {
-            m_animater.SetFloat("Speed", m_navMesh.velocity.magnitude);
-        }
+        
     }
 
     public void UpDateSrider()
@@ -72,6 +64,13 @@ public class EnemyContoroller : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            m_animater.SetTrigger("Attack");
+        }
+    }
     public void ActivCollider()
     {
         m_hitCollider.SetActive(true);
