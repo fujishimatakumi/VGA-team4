@@ -20,22 +20,9 @@ public class GameStatusManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch (m_status)
+        if (m_clearRimit <= 0)
         {
-            case GameStatus.BeforeGeneration:
-                m_timer += Time.deltaTime;
-                if (m_timer > m_generateMargin)
-                {
-                    m_status = GameStatus.NowGaming;
-                }
-                break;
-
-            case GameStatus.NowGaming:
-
-                break;
-            case GameStatus.GameResalt:
-                break;
-
+            GameClear();
         }
     }
 
