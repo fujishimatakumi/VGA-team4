@@ -9,7 +9,7 @@ public class EnemyContoroller : MonoBehaviour
 {
     [SerializeField] int m_enemyHP = 100;
     [SerializeField] int m_score = 100;
-    [SerializeField] float m_eAtack = 1f;
+    //[SerializeField] float m_eAtack = 1f;
     [SerializeField] GameObject m_target;
     [SerializeField] float m_targetMargin = 0.1f;
     [SerializeField] float m_enemySpeadMagni = 1f;
@@ -25,7 +25,7 @@ public class EnemyContoroller : MonoBehaviour
         m_navMesh = GetComponent<NavMeshAgent>();
         m_animater = GetComponent<Animator>();
         m_targetPosition = m_target.transform.position;
-        m_navMesh.speed = m_navMesh.speed * m_enemySpeadMagni;
+        //m_navMesh.speed = m_navMesh.speed * m_enemySpeadMagni;
         //m_enemyHPSlider = GetComponentInChildren<Slider>();
         m_enemyHPSlider.maxValue = m_enemyHP;
     }
