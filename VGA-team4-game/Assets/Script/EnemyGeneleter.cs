@@ -7,24 +7,38 @@ public class EnemyGeneleter : MonoBehaviour
     [SerializeField] GameObject m_enemyObj;
     [SerializeField] float m_taimeMargin = 1f;
     float m_taimer = 0;
+    bool m_flag;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        m_taimer = Time.deltaTime;
-        if (m_enemyObj)
+        if (m_flag)
         {
-            if (m_taimer >= m_taimeMargin)
+            if (m_enemyObj)
             {
-                Instantiate(m_enemyObj, this.gameObject.transform.position, Quaternion.identity);
-                m_taimer = 0;
+                m_taimer = Time.deltaTime;
+                if (m_taimer >= m_taimeMargin)
+                {
+                    Instantiate(m_enemyObj, this.gameObject.transform.position, Quaternion.identity);
+                    m_taimer = 0;
+                }
             }
         }
+    }
+
+    public void StartGenerat()
+    {
+        m_flag = true;
+    }
+
+    public void StopGenerat()
+    {
+        m_flag = false;
     }
 }
