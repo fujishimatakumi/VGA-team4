@@ -68,9 +68,22 @@ public class EnemyContoroller : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            m_animater.SetTrigger("Attack");
+            GameObject ga = other.gameObject;
+            PlayerController pc = ga.GetComponent<PlayerController>();
+            pc.HitDamage(m_damage);
         }
     }
+
+
+    private void OnCollisionEnter(Collision collision)
+    {
+            if (collision.gameObject.tag == "Player")
+            {
+                m_animater.SetTrigger("Attack");
+            }
+    }
+
+
     public void ActivCollider()
     {
         m_hitCollider.SetActive(true);
