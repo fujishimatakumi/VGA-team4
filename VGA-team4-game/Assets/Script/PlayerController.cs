@@ -12,11 +12,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] int m_helth = 100;
     [SerializeField] int m_level = 1;
     [SerializeField] float m_Atack = 1f;
+    [SerializeField] float m_resaltMargin = 3f;
     Rigidbody m_rb;
     Animator m_anim;
     //[SerializeField] Slider m_HPslider = default;
     [SerializeField] GameObject m_hitCollider;
     [SerializeField] Image m_im = default;
+    
 
     //GameObject m_skilPoint;
    // SkilPointManager m_manager;
@@ -58,6 +60,17 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             m_anim.SetTrigger("Attack1Trigger");
+        }
+
+        if (m_im.fillAmount <= 0)
+        {
+            float timer = 0;
+            timer += Time.deltaTime;
+            if (timer > m_resaltMargin)
+            {
+                GameStatusManager gm = FindObjectOfType<GameStatusManager>();
+                gm.GameOver();
+            }
         }
     }
 
