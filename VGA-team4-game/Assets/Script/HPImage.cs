@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HPImage : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class HPImage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        m_im gaugeCtrl = GetComponent<Image>();
+        Image gaugeCtrl = GetComponent<Image>();
         gaugeCtrl.fillAmount =0 ;
     }
 }
