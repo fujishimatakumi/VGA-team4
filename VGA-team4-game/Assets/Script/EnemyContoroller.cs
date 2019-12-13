@@ -7,7 +7,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyContoroller : MonoBehaviour
 {
-    [SerializeField] int m_enemyHP = 100;
+    [SerializeField] float m_enemyHP = 100;
     [SerializeField] int m_score = 100;
     //[SerializeField] float m_eAtack = 1f;
     [SerializeField] GameObject m_target;
@@ -16,9 +16,11 @@ public class EnemyContoroller : MonoBehaviour
     [SerializeField] Slider m_enemyHPSlider;
     [SerializeField] int m_damage = 10;
     [SerializeField] GameObject m_hitCollider;
+    [SerializeField] float m_destroyTime = 5f;
     Animator m_animater;
     Vector3 m_targetPosition;
     NavMeshAgent m_navMesh;
+    bool m_flag = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,7 @@ public class EnemyContoroller : MonoBehaviour
         //m_navMesh.speed = m_navMesh.speed * m_enemySpeadMagni;
         //m_enemyHPSlider = GetComponentInChildren<Slider>();
         m_enemyHPSlider.maxValue = m_enemyHP;
+        m_enemyHPSlider.value = m_enemyHP;
     }
 
     // Update is called once per frame
@@ -41,6 +44,12 @@ public class EnemyContoroller : MonoBehaviour
             {
                 m_animater.SetFloat("Speed", m_navMesh.velocity.magnitude);
             }
+
+            if (m_flag)
+            {
+                Death();
+                m_flag = false;
+            }
         }
         
     }
@@ -51,16 +60,12 @@ public class EnemyContoroller : MonoBehaviour
     }
 
     public void DecreaseHelth()
-    {
-        if (m_enemyHP > 0)
-        {
+    {   
             m_enemyHP -= m_damage;
             m_animater.SetTrigger("Damage");
-        }
-        else
+        if (m_enemyHP <= 0)
         {
-            m_animater.SetTrigger("Death");
-            Destroy(this, 3f);
+            m_flag = true;
         }
     }
 
@@ -83,7 +88,12 @@ public class EnemyContoroller : MonoBehaviour
             }
     }
 
-
+    public void Death()
+    {
+        m_navMesh.isStopped = true;
+        m_animater.SetTrigger("Death");
+        Destroy(this.gameObject, m_destroyTime);
+    }
     public void ActivCollider()
     {
         m_hitCollider.SetActive(true);
