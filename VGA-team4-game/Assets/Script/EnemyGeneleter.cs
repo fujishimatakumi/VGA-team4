@@ -7,7 +7,7 @@ public class EnemyGeneleter : MonoBehaviour
     [SerializeField] GameObject m_enemyObj;
     [SerializeField] float m_taimeMargin = 1f;
     float m_taimer = 0;
-    bool m_flag;
+    [SerializeField] bool m_flag = false;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +22,7 @@ public class EnemyGeneleter : MonoBehaviour
         {
             if (m_enemyObj)
             {
-                m_taimer = Time.deltaTime;
+                m_taimer += Time.deltaTime;
                 if (m_taimer >= m_taimeMargin)
                 {
                     Instantiate(m_enemyObj, this.gameObject.transform.position, Quaternion.identity);
