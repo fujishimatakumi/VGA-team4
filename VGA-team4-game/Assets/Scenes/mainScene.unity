@@ -570,6 +570,7 @@ MonoBehaviour:
   m_enemyObj: {fileID: 5356058142758774134, guid: aa1bef2c77f88f542bed45b93f3be4e0,
     type: 3}
   m_taimeMargin: 2
+  m_flag: 0
 --- !u!1 &1369502561
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,6 +816,7 @@ MonoBehaviour:
   m_enemyObj: {fileID: 5356058142758774134, guid: aa1bef2c77f88f542bed45b93f3be4e0,
     type: 3}
   m_taimeMargin: 1
+  m_flag: 0
 --- !u!1 &1591720859
 GameObject:
   m_ObjectHideFlags: 0
