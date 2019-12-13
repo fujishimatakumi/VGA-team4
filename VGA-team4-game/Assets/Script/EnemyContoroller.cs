@@ -26,6 +26,7 @@ public class EnemyContoroller : MonoBehaviour
     {
         m_navMesh = GetComponent<NavMeshAgent>();
         m_animater = GetComponent<Animator>();
+        m_target = GameObject.FindGameObjectWithTag("Player");
         m_targetPosition = m_target.transform.position;
         //m_navMesh.speed = m_navMesh.speed * m_enemySpeadMagni;
         //m_enemyHPSlider = GetComponentInChildren<Slider>();
