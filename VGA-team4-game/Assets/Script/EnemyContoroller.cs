@@ -20,6 +20,8 @@ public class EnemyContoroller : MonoBehaviour
     Animator m_animater;
     Vector3 m_targetPosition;
     NavMeshAgent m_navMesh;
+    Text m_damegeText;
+    Animator m_UIanim;
     bool m_flag = false;
     // Start is called before the first frame update
     void Start()
@@ -28,6 +30,8 @@ public class EnemyContoroller : MonoBehaviour
         m_animater = GetComponent<Animator>();
         m_target = GameObject.FindGameObjectWithTag("Player");
         m_targetPosition = m_target.transform.position;
+        m_damegeText = this.gameObject.GetComponentInChildren<Text>();
+        m_UIanim = m_damegeText.gameObject.GetComponent<Animator>();
         //m_navMesh.speed = m_navMesh.speed * m_enemySpeadMagni;
         //m_enemyHPSlider = GetComponentInChildren<Slider>();
         m_enemyHPSlider.maxValue = m_enemyHP;
@@ -64,6 +68,7 @@ public class EnemyContoroller : MonoBehaviour
     {   
             m_enemyHP -= m_damage;
             m_animater.SetTrigger("Damage");
+        m_UIanim.SetTrigger("UI");
         if (m_enemyHP <= 0)
         {
             m_flag = true;
