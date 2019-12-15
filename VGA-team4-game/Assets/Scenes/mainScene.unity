@@ -207,7 +207,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_clearRimitText: {fileID: 0}
+  m_clearRimit: 1
   m_generateMargin: 3
+  m_decleacRimit: 1
 --- !u!4 &443339622
 Transform:
   m_ObjectHideFlags: 0
