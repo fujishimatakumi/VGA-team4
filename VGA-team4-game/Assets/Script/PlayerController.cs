@@ -61,16 +61,20 @@ public class PlayerController : MonoBehaviour
         {
             m_anim.SetTrigger("Attack1Trigger");
         }
-
-        if (m_im.fillAmount <= 0)
+        if (Input.GetKey("p"))
         {
-            float timer = 0;
-            timer += Time.deltaTime;
-            if (timer > m_resaltMargin)
-            {
+            m_helth = 0;
+        }
+            
+
+        
+
+        if (m_helth <= 0)
+        {
+            
                 GameStatusManager gm = FindObjectOfType<GameStatusManager>();
                 gm.GameOver();
-            }
+            
         }
     }
 
