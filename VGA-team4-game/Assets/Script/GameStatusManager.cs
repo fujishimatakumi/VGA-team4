@@ -7,9 +7,10 @@ using UnityEngine.SceneManagement;
 public class GameStatusManager : MonoBehaviour
 {
     [SerializeField] Text m_clearRimitText;
-    int m_clearRimit;
+    [SerializeField] int m_clearRimit;
     GameStatus m_status = GameStatus.BeforeGeneration;
     [SerializeField] float m_generateMargin = 3f;
+    [SerializeField] int m_decleacRimit = 1;
     float m_timer = 0f;
     // Start is called before the first frame update
     void Start()
@@ -26,9 +27,9 @@ public class GameStatusManager : MonoBehaviour
         }
     }
 
-    public void UpDateScore(int rimit)
+    public void UpDateScore()
     {
-        m_clearRimit -= rimit;
+        m_clearRimit -= m_decleacRimit;
         m_clearRimitText.text = m_clearRimit.ToString();
     }
     public void GameOver()
