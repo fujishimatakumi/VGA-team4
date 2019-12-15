@@ -16,8 +16,15 @@ public class SceneLode : MonoBehaviour
     {
         
     }
-    public void LodeScene()
+
+    public void LodeSceneMain()
     {
         SceneManager.LoadScene("mainScene");
     }
+
+    public void LodeSceneOpen()
+    {
+        SceneManager.LoadScene("mainScene");
+    }
+    
 }
