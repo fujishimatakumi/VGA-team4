@@ -97,6 +97,9 @@ public class EnemyContoroller : MonoBehaviour
     public void Death()
     {
         m_navMesh.isStopped = true;
+        GameObject ga = GameObject.Find("GameStatusManager");
+        GameStatusManager gs = ga.gameObject.GetComponent<GameStatusManager>();
+        gs.UpDateScore();
         m_animater.SetTrigger("Death");
         Destroy(this.gameObject, m_destroyTime);
     }
