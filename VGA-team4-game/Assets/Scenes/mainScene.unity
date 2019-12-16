@@ -207,7 +207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_clearRimitText: {fileID: 1578334471}
-  m_clearRimit: 1
+  m_clearRimit: 15
   m_generateMargin: 3
   m_decleacRimit: 1
 --- !u!4 &443339622
@@ -614,10 +614,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c1c4956c6c08854a8558a23d2718507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_enemyObj: {fileID: 5356058142758774134, guid: aa1bef2c77f88f542bed45b93f3be4e0,
+  m_enemyObj: {fileID: 7768209178711627738, guid: fd8d6ca97f0b7c14d84ace812ed5517d,
     type: 3}
-  m_taimeMargin: 2
-  m_flag: 0
+  m_taimeMargin: 8
+  m_flag: 1
 --- !u!1 &1369502561
 GameObject:
   m_ObjectHideFlags: 0
@@ -813,7 +813,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.19
+  m_Radius: 0.53
   m_Height: 0.27
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -862,8 +862,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_enemyObj: {fileID: 7768209178711627738, guid: fd8d6ca97f0b7c14d84ace812ed5517d,
     type: 3}
-  m_taimeMargin: 1
-  m_flag: 0
+  m_taimeMargin: 5
+  m_flag: 1
 --- !u!1 &1578334470
 GameObject:
   m_ObjectHideFlags: 0
