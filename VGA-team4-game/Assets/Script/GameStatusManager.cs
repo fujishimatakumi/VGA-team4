@@ -25,6 +25,10 @@ public class GameStatusManager : MonoBehaviour
         {
             GameClear();
         }
+        if (Input.GetKey("o"))
+        {
+            GameClear();
+        }
     }
 
     public void UpDateScore()
