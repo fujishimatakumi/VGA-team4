@@ -19,12 +19,12 @@ public class SceneLode : MonoBehaviour
 
     public void LodeSceneMain()
     {
-        SceneManager.LoadScene("mainScene");
+        Initiate.Fade("mainScene",Color.black,2f);
     }
 
     public void LodeSceneOpen()
     {
-        SceneManager.LoadScene("openScene");
+        Initiate.Fade("openScene",Color.black,2f);
     }
     
 }

@@ -25,21 +25,28 @@ public class GameStatusManager : MonoBehaviour
         {
             GameClear();
         }
+
+        if (Input.GetKey("o"))
+        {
+            GameClear();
+        }
     }
 
     public void UpDateScore()
     {
         m_clearRimit -= m_decleacRimit;
         m_clearRimitText.text = m_clearRimit.ToString();
+
+      
     }
     public void GameOver()
     {
-        SceneManager.LoadScene("GameOverResalt");
+        Initiate.Fade("GameOverResalt",Color.black,2);
     }
 
     public void GameClear()
     {
-        SceneManager.LoadScene("GameClearResalt");
+        Initiate.Fade("GameClearResalt",Color.black,2);
     }
 }
 
