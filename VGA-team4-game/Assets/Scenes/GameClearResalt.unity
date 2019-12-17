@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &424600896
 RectTransform:
   m_ObjectHideFlags: 0
@@ -155,7 +155,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 1.99277}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 165, y: 180}
+  m_AnchoredPosition: {x: 165, y: 154}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &424600897
@@ -176,7 +176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u30BD\u30EB\u30B8\u30E3\u30FC"
+  m_text: Congratulations!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a36a1a792422e614ca1e6b10aa203000, type: 2}
   m_sharedMaterial: {fileID: -796544075200496776, guid: a36a1a792422e614ca1e6b10aa203000,
@@ -186,8 +186,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4284769480
-  m_fontColor: {r: 0.78431374, g: 0.39215687, b: 0.39215687, a: 1}
+    rgba: 4278255599
+  m_fontColor: {r: 0.94000006, g: 1, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -205,8 +205,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 80
-  m_fontSizeBase: 80
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -243,10 +243,10 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -197.20882, y: 0, z: -69.82409, w: -44.671303}
+  m_margin: {x: -343.94806, y: 0, z: -69.82409, w: -44.671303}
   m_textInfo:
     textComponent: {fileID: 424600897}
-    characterCount: 5
+    characterCount: 16
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -286,9 +286,9 @@ Animation:
   m_GameObject: {fileID: 424600895}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: caefa7a5fbcb6b44ca12e097ebbf5c70, type: 2}
+  m_Animation: {fileID: 7400000, guid: c5e851901ae0c6845ab0f83ce950f140, type: 2}
   m_Animations:
-  - {fileID: 7400000, guid: caefa7a5fbcb6b44ca12e097ebbf5c70, type: 2}
+  - {fileID: 7400000, guid: c5e851901ae0c6845ab0f83ce950f140, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -1306,10 +1306,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 692696471}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 29.0034}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14, y: 173}
+  m_AnchoredPosition: {x: 100, y: 76}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1908167518
@@ -1330,9 +1330,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'gemeclera
-
-'
+  m_text: "\u30B2\u30FC\u30E0\u30AF\u30EA\u30A2"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a36a1a792422e614ca1e6b10aa203000, type: 2}
   m_sharedMaterial: {fileID: -796544075200496776, guid: a36a1a792422e614ca1e6b10aa203000,
@@ -1342,8 +1340,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4284567744
-  m_fontColor: {r: 0.754717, g: 0.31683874, b: 0.38355425, a: 1}
+    rgba: 4278255614
+  m_fontColor: {r: 0.999694, g: 1, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1361,14 +1359,14 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 120
-  m_fontSizeBase: 120
+  m_fontSize: 90
+  m_fontSizeBase: 90
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 3
-  m_textAlignment: 257
+  m_fontStyle: 1
+  m_textAlignment: 258
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -1378,7 +1376,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 4
+  m_firstOverflowCharacterIndex: 0
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -1399,15 +1397,15 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -197.20882, y: 0, z: 244.91756, w: -197.46867}
+  m_margin: {x: -288.36145, y: 0, z: -100.96176, w: -23.771534}
   m_textInfo:
     textComponent: {fileID: 1908167518}
-    characterCount: 10
+    characterCount: 6
     spriteCount: 0
-    spaceCount: 1
+    spaceCount: 0
     wordCount: 1
     linkCount: 0
-    lineCount: 5
+    lineCount: 1
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -1442,9 +1440,9 @@ Animation:
   m_GameObject: {fileID: 1908167516}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 282e7c570a174414e96eed398350ef44, type: 2}
+  m_Animation: {fileID: 7400000, guid: 3e7e918fe847fbc40a1dc5f0b9ed6c48, type: 2}
   m_Animations:
-  - {fileID: 7400000, guid: 282e7c570a174414e96eed398350ef44, type: 2}
+  - {fileID: 7400000, guid: 3e7e918fe847fbc40a1dc5f0b9ed6c48, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -1461,6 +1459,7 @@ GameObject:
   - component: {fileID: 1976034557}
   - component: {fileID: 1976034556}
   - component: {fileID: 1976034559}
+  - component: {fileID: 1976034560}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1566,6 +1565,15 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!45 &1976034560
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976034555}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: 9b7ca251e8646c54db0a77ae2021bf9b, type: 2}
 --- !u!1001 &2066985122
 PrefabInstance:
   m_ObjectHideFlags: 0
