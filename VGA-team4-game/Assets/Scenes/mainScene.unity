@@ -120,6 +120,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: dea3090e7c16a06458d42d1f0b696add, type: 2}
+--- !u!114 &71951072 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5289702061398474873, guid: 48b2225168715bd4a85841fd4a2de4f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 2085724614}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &436263864
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -749,7 +761,7 @@ MonoBehaviour:
   m_Atack: 1
   m_resaltMargin: 3
   m_hitCollider: {fileID: 1428427916}
-  m_im: {fileID: 0}
+  m_im: {fileID: 71951072}
 --- !u!54 &1385102684
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1343,6 +1355,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.x
       value: -498.02997
+      objectReference: {fileID: 0}
+    - target: {fileID: 5289702061398474879, guid: 48b2225168715bd4a85841fd4a2de4f3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48b2225168715bd4a85841fd4a2de4f3, type: 3}
