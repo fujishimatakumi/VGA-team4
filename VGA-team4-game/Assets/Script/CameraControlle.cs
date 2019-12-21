@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class CameraControlle : MonoBehaviour
 {
-    Camera m_mc;
-    Vector3 m_anker;
-    Transform m_target;
+    
     // Start is called before the first frame update
     void Start()
     {
