@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraControlle : MonoBehaviour
 {
-    
+    [SerializeField] float m_cameraSpead = 1f;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,22 +22,22 @@ public class CameraControlle : MonoBehaviour
         {
             if (absHoriR > absVerR)
             {
-                this.gameObject.transform.Rotate(Vector3.up * horiR);
+                this.gameObject.transform.Rotate(Vector3.up * horiR * m_cameraSpead);
             }
             else
             {
-                this.gameObject.transform.Rotate(Vector3.right * verR);
+                this.gameObject.transform.Rotate(Vector3.right * verR * m_cameraSpead);
             }
         }
         else
         {
             if (absHoriR > 0.1f)
             {
-                this.gameObject.transform.Rotate(Vector3.up * horiR);
+                this.gameObject.transform.Rotate(Vector3.up * horiR * m_cameraSpead);
             }
             else if (absVerR > 0.1f)
             {
-                this.gameObject.transform.Rotate(Vector3.right * verR);
+                this.gameObject.transform.Rotate(Vector3.right * verR * m_cameraSpead);
             }
         }
 
