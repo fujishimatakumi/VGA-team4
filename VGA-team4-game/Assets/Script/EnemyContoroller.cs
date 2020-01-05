@@ -57,7 +57,7 @@ public class EnemyContoroller : MonoBehaviour
                 m_flag = false;
             }
         }
-        else if (Vector3.Distance(this.gameObject.transform.position, m_target.transform.position) < m_hitDistans)
+        if (Vector3.Distance(this.gameObject.transform.position, m_target.transform.position) <= m_hitDistans)
         {
             if (m_animater)
             {
