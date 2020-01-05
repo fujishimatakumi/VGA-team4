@@ -17,6 +17,7 @@ public class EnemyContoroller : MonoBehaviour
     [SerializeField] int m_damage = 10;
     [SerializeField] GameObject m_hitCollider;
     [SerializeField] float m_destroyTime = 5f;
+    [SerializeField] float m_hitDistans = 1f;
     Animator m_animater;
     Vector3 m_targetPosition;
     NavMeshAgent m_navMesh;
@@ -56,7 +57,13 @@ public class EnemyContoroller : MonoBehaviour
                 m_flag = false;
             }
         }
-        
+        else if (Vector3.Distance(this.gameObject.transform.position, m_target.transform.position) < m_hitDistans)
+        {
+            if (m_animater)
+            {
+                m_animater.SetTrigger("Attack");
+            }
+        }
     }
 
     public void UpDateSrider()
@@ -85,7 +92,7 @@ public class EnemyContoroller : MonoBehaviour
         }
     }
 
-
+    /*
     private void OnCollisionEnter(Collision collision)
     {
             if (collision.gameObject.tag == "Player")
@@ -93,7 +100,7 @@ public class EnemyContoroller : MonoBehaviour
                 m_animater.SetTrigger("Attack");
             }
     }
-
+    */
     public void Death()
     {
         m_navMesh.isStopped = true;
@@ -111,5 +118,15 @@ public class EnemyContoroller : MonoBehaviour
     public void EnableCollider()
     {
         m_hitCollider.SetActive(false);
+    }
+
+    public void HitJudge()
+    {
+        float dis = Vector3.Distance(this.gameObject.transform.position, m_target.transform.position);
+        if (dis < m_hitDistans)
+        {
+            PlayerController pc = m_target.GetComponent<PlayerController>();
+            pc.HitDamage(m_damage);
+        }
     }
 }
