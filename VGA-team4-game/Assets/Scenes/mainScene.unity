@@ -302,7 +302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_clearRimitText: {fileID: 1578334471}
-  m_clearRimit: 5
+  m_clearRimit: 1
   m_generateMargin: 3
   m_decleacRimit: 1
   m_timer: 0
