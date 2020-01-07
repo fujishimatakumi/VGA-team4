@@ -14,7 +14,10 @@ public class SceneLode : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetButtonDown("Fire1"))
+        {
+            LodeSceneMain();
+        }
     }
 
     public void LodeSceneMain()
