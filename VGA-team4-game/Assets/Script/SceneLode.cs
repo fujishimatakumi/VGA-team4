@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneLode : MonoBehaviour
 {
+    public static bool m_resultFlug = true;  
     // Start is called before the first frame update
     void Start()
     {
@@ -14,20 +15,32 @@ public class SceneLode : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (m_resultFlug)
         {
-            LodeSceneMain();
+            if (Input.GetButtonDown("Fire1"))
+            {
+                LodeSceneMain();
+            }
+        }
+        else if (!m_resultFlug)
+        {
+            if (Input.GetButtonDown("Fire1"))
+            {
+                LodeSceneOpen();
+            }
         }
     }
 
     public void LodeSceneMain()
     {
         Initiate.Fade("mainScene",Color.black,2f);
+        m_resultFlug = false;
     }
 
     public void LodeSceneOpen()
     {
         Initiate.Fade("openScene",Color.black,2f);
+        m_resultFlug = true;
     }
     
 }
