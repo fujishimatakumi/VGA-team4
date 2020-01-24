@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneLode : MonoBehaviour
 {
-     public bool m_resultFlug = true;  
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,11 +34,13 @@ public class SceneLode : MonoBehaviour
     public void LodeSceneMain()
     {
         Initiate.Fade("mainScene",Color.black,2f);
+
     }
 
     public void LodeSceneOpen()
     {
         Initiate.Fade("openScene",Color.black,2f);
+
     }
     
 }
