@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] int m_level = 1;
     [SerializeField] float m_Atack = 1f;
     [SerializeField] float m_resaltMargin = 3f;
+    [SerializeField] float m_isGroundedLength = 0.2f;
+    [SerializeField] float m_jumpPower = 5f;
     Rigidbody m_rb;
     Animator m_anim;
     //[SerializeField] Slider m_HPslider = default;
@@ -61,6 +63,10 @@ public class PlayerController : MonoBehaviour
         {
             m_anim.SetTrigger("Attack1Trigger");
         }
+        if (Input.GetButtonDown("Jump") && IsGrounded())
+        {
+            m_rb.AddForce(Vector3.up * m_jumpPower, ForceMode.Impulse);
+        }
         if (Input.GetKey("p"))
         {
             m_helth = 0;
@@ -102,5 +108,15 @@ public class PlayerController : MonoBehaviour
     public void HitDamage(int damege)
     {
         m_im.fillAmount -= damege;
+    }
+    bool IsGrounded()
+    {
+        // Physics.Linecast() を使って足元から線を張り、そこに何かが衝突していたら true とする
+        CapsuleCollider col = GetComponent<CapsuleCollider>();
+        Vector3 start = this.transform.position + col.center;   // start: 体の中心
+        Vector3 end = start + Vector3.down * (col.center.y + col.height / 2 + m_isGroundedLength);  // end: start から真下の地点
+        Debug.DrawLine(start, end); // 動作確認用に Scene ウィンドウ上で線を表示する
+        bool isGrounded = Physics.Linecast(start, end); // 引いたラインに何かがぶつかっていたら true とする
+        return isGrounded;
     }
 }
