@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float m_resaltMargin = 3f;
     [SerializeField] float m_isGroundedLength = 0.2f;
     [SerializeField] float m_jumpPower = 5f;
+    [SerializeField] int m_jumpLimit = 2;
+    int m_jumpCounter = 0; 
     Rigidbody m_rb;
     Animator m_anim;
     //[SerializeField] Slider m_HPslider = default;
@@ -63,9 +65,10 @@ public class PlayerController : MonoBehaviour
         {
             m_anim.SetTrigger("Attack1Trigger");
         }
-        if (Input.GetButtonDown("Jump") && IsGrounded())
+        if (Input.GetButtonDown("Jump") && IsGrounded() && m_jumpCounter < m_jumpLimit)
         {
             m_rb.AddForce(Vector3.up * m_jumpPower, ForceMode.Impulse);
+            m_jumpCounter++;
         }
         if (Input.GetKey("p"))
         {
@@ -82,6 +85,7 @@ public class PlayerController : MonoBehaviour
                 gm.GameOver();
             
         }
+        m_jumpCounter = 0;
     }
 
     private void OnTriggerEnter(Collider other)
