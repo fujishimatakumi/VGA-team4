@@ -67,6 +67,10 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetButtonDown("Jump") && IsGrounded() && m_jumpCounter < m_jumpLimit)
         {
+            if (m_anim)
+            {
+                m_anim.SetTrigger("Jump");
+            }
             m_rb.AddForce(Vector3.up * m_jumpPower, ForceMode.Impulse);
             m_jumpCounter++;
         }
