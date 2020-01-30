@@ -16,6 +16,7 @@ public class EnemyGeneleter : MonoBehaviour
     {
         GameObject go = GameObject.Find("GameStatusManager");
         m_gameStatus = go.GetComponent<GameStatusManager>();
+        m_rimit = 0;
         StartGenerat();
     }
 
