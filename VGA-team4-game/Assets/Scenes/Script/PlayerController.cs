@@ -16,7 +16,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float m_isGroundedLength = 0.2f;
     [SerializeField] float m_jumpPower = 5f;
     [SerializeField] int m_jumpLimit = 2;
-    int m_jumpCounter = 0; 
+    int m_jumpCounter = 0;
+    float m_nowHP;
     Rigidbody m_rb;
     Animator m_anim;
     //[SerializeField] Slider m_HPslider = default;
@@ -32,6 +33,7 @@ public class PlayerController : MonoBehaviour
         m_rb = GetComponent<Rigidbody>();
         m_anim = GetComponent<Animator>();
         m_im.fillAmount = m_helth;
+        m_nowHP = m_helth;
         //m_HPslider.value = m_helth;
        // m_skilPoint = GameObject.Find("SkilPointManager");
      //   m_manager = m_skilPoint.GetComponent<SkilPointManager>();
@@ -115,7 +117,8 @@ public class PlayerController : MonoBehaviour
 
     public void HitDamage(int damege)
     {
-        m_im.fillAmount -= damege;
+        m_nowHP = m_nowHP - damege;
+        m_im.fillAmount = m_nowHP / m_helth;
     }
     bool IsGrounded()
     {
