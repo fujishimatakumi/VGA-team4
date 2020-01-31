@@ -15,7 +15,7 @@ public class GameStatusManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_clearRimitText.text = m_clearRimit.ToString();
+        m_clearRimitText.text = "あと" + m_clearRimit.ToString() + "体倒せ！";
     }
 
     // Update is called once per frame
@@ -35,9 +35,7 @@ public class GameStatusManager : MonoBehaviour
     public void UpDateScore()
     {
         m_clearRimit -= m_decleacRimit;
-        m_clearRimitText.text = m_clearRimit.ToString();
-
-      
+        m_clearRimitText.text = "あと" + m_clearRimit.ToString() + "倒せ！";
     }
     public void GameOver()
     {
