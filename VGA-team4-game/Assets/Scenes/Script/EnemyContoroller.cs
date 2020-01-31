@@ -18,6 +18,8 @@ public class EnemyContoroller : MonoBehaviour
     [SerializeField] GameObject m_hitCollider;
     [SerializeField] float m_destroyTime = 5f;
     [SerializeField] float m_hitDistans = 1f;
+    [SerializeField] Image m_hpImage;
+    float m_nowHp;
     Animator m_animater;
     Vector3 m_targetPosition;
     NavMeshAgent m_navMesh;
@@ -33,10 +35,12 @@ public class EnemyContoroller : MonoBehaviour
         m_targetPosition = m_target.transform.position;
         m_damegeText = this.gameObject.GetComponentInChildren<Text>();
         m_UIanim = m_damegeText.gameObject.GetComponent<Animator>();
+        m_hpImage.fillAmount = m_enemyHP;
+        m_nowHp = m_enemyHP;
         //m_navMesh.speed = m_navMesh.speed * m_enemySpeadMagni;
         //m_enemyHPSlider = GetComponentInChildren<Slider>();
-        m_enemyHPSlider.maxValue = m_enemyHP;
-        m_enemyHPSlider.value = m_enemyHP;
+       // m_enemyHPSlider.maxValue = m_enemyHP;
+        //m_enemyHPSlider.value = m_enemyHP;
     }
 
     // Update is called once per frame
@@ -73,10 +77,11 @@ public class EnemyContoroller : MonoBehaviour
 
     public void DecreaseHelth()
     {   
-            m_enemyHP -= m_damage;
-            m_animater.SetTrigger("Damage");
+        m_nowHp = m_nowHp - m_damage;
+        m_hpImage.fillAmount = m_nowHp / m_enemyHP;    
+        m_animater.SetTrigger("Damage");
         m_UIanim.SetTrigger("UI");
-        if (m_enemyHP <= 0)
+        if (m_nowHp <= 0)
         {
             m_flag = true;
         }
