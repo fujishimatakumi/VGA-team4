@@ -1152,6 +1152,7 @@ MonoBehaviour:
   m_hitCollider: {fileID: 0}
   m_destroyTime: 5
   m_hitDistans: 2.14
+  m_hpImage: {fileID: 7237375174131327283}
 --- !u!195 &7768209178757727407
 NavMeshAgent:
   m_ObjectHideFlags: 0
