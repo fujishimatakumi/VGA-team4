@@ -43,54 +43,62 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float v = Input.GetAxisRaw("Vertical");
-        float h = Input.GetAxisRaw("Horizontal");
-        Vector3 dir = Vector3.forward * v + Vector3.right * h;
-        if (dir == Vector3.zero)
+        IsAttack();
+        if (m_nowHP <= 0)
         {
-            m_rb.velocity = new Vector3(0f,m_rb.velocity.y,0f);
-            m_anim.SetBool("Moving", false);
-        }
-        else
-        {
-            m_anim.SetBool("Moving", true);
-            dir = Camera.main.transform.TransformDirection(dir);
-            dir.y = 0;
-            this.transform.forward = dir;
-            
-            Vector3 velo = this.transform.forward * m_moveSpead;
-            velo.y = m_rb.velocity.y;
-            m_rb.velocity = velo;
+
+            GameStatusManager gm = FindObjectOfType<GameStatusManager>();
+            gm.GameOver();
+
         }
 
         if (Input.GetButtonDown("Fire1"))
-        {
+        {   
             m_anim.SetTrigger("Attack1Trigger");
-        }
-        if (Input.GetButtonDown("Jump") && IsGrounded() && m_jumpCounter < m_jumpLimit)
-        {
-            if (m_anim)
-            {
-                m_anim.SetTrigger("Jump");
+            if (IsAttack())
+            {   
+                return;
             }
-            m_rb.AddForce(Vector3.up * m_jumpPower, ForceMode.Impulse);
-            m_jumpCounter++;
         }
-        if (Input.GetKey("p"))
-        {
-            m_helth = 0;
-        }
-            
+        if (!IsAttack())
+        {  
+            float v = Input.GetAxisRaw("Vertical");
+            float h = Input.GetAxisRaw("Horizontal");
+            Vector3 dir = Vector3.forward * v + Vector3.right * h;
+            if (dir == Vector3.zero)
+            {
+                m_rb.velocity = new Vector3(0f, m_rb.velocity.y, 0f);
+                m_anim.SetBool("Moving", false);
+            }
+            else
+            {
+                m_anim.SetBool("Moving", true);
+                dir = Camera.main.transform.TransformDirection(dir);
+                dir.y = 0;
+                this.transform.forward = dir;
 
-        
+                Vector3 velo = this.transform.forward * m_moveSpead;
+                velo.y = m_rb.velocity.y;
+                m_rb.velocity = velo;
+            }
 
-        if (m_helth <= 0)
-        {
-            
-                GameStatusManager gm = FindObjectOfType<GameStatusManager>();
-                gm.GameOver();
-            
+
+            if (Input.GetButtonDown("Jump") && IsGrounded() && m_jumpCounter < m_jumpLimit)
+            {
+                if (m_anim)
+                {
+                    m_anim.SetTrigger("Jump");
+                }
+                m_rb.AddForce(Vector3.up * m_jumpPower, ForceMode.Impulse);
+                m_jumpCounter++;
+            }
+            if (Input.GetKey("p"))
+            {
+                m_nowHP = 0;
+            }
         }
+
+
         m_jumpCounter = 0;
     }
 
@@ -129,5 +137,10 @@ public class PlayerController : MonoBehaviour
         Debug.DrawLine(start, end); // 動作確認用に Scene ウィンドウ上で線を表示する
         bool isGrounded = Physics.Linecast(start, end); // 引いたラインに何かがぶつかっていたら true とする
         return isGrounded;
+    }
+    bool IsAttack()
+    {
+        bool isAttack = m_anim.GetCurrentAnimatorStateInfo(0).IsName("Attack1");
+        return isAttack;
     }
 }
