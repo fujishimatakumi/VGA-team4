@@ -5,10 +5,11 @@ using UnityEngine;
 public class CameraControlle : MonoBehaviour
 {
     [SerializeField] float m_cameraSpead = 1f;
+    [SerializeField] Camera m_maincamera;
     // Start is called before the first frame update
     void Start()
     {
-       
+        m_maincamera = GetComponentInChildren<Camera>();
     }
 
     // Update is called once per frame
@@ -45,4 +46,6 @@ public class CameraControlle : MonoBehaviour
         angle.z = 0.0f;
         this.gameObject.transform.eulerAngles = angle;
     }
+    
+    
 }
