@@ -34,7 +34,7 @@ public class CameraRay : MonoBehaviour
                 if (isHit)
                 {
                     Debug.Log("hit");
-                    transform.localPosition = m_hitInfo.point;
+                    transform.position = m_hitInfo.transform.position;
                 }
             }
             transform.localPosition = m_defoltPos;
