@@ -16,10 +16,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float m_isGroundedLength = 0.2f;
     [SerializeField] float m_jumpPower = 5f;
     [SerializeField] int m_jumpLimit = 2;
+    [SerializeField] AudioClip m_attackSound;
+    [SerializeField] AudioClip m_hitSound;
+    [SerializeField] AudioClip m_jumpSound;
+    [SerializeField] AudioClip m_moveSound;
     int m_jumpCounter = 0;
     float m_nowHP;
     Rigidbody m_rb;
     Animator m_anim;
+    AudioSource m_audio;
     //[SerializeField] Slider m_HPslider = default;
     [SerializeField] GameObject m_hitCollider;
     [SerializeField] Image m_im = default;
@@ -34,6 +39,9 @@ public class PlayerController : MonoBehaviour
         m_anim = GetComponent<Animator>();
         m_im.fillAmount = m_helth;
         m_nowHP = m_helth;
+        m_audio = GetComponent<AudioSource>();
+        
+
         //m_HPslider.value = m_helth;
        // m_skilPoint = GameObject.Find("SkilPointManager");
      //   m_manager = m_skilPoint.GetComponent<SkilPointManager>();
@@ -55,6 +63,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {   
             m_anim.SetTrigger("Attack1Trigger");
+            m_audio.PlayOneShot(m_attackSound);
             if (IsAttack())
             {   
                 return;
@@ -69,10 +78,12 @@ public class PlayerController : MonoBehaviour
             {
                 m_rb.velocity = new Vector3(0f, m_rb.velocity.y, 0f);
                 m_anim.SetBool("Moving", false);
+                m_audio.Play();
             }
             else
             {
                 m_anim.SetBool("Moving", true);
+                
                 dir = Camera.main.transform.TransformDirection(dir);
                 dir.y = 0;
                 this.transform.forward = dir;
@@ -88,6 +99,7 @@ public class PlayerController : MonoBehaviour
                 if (m_anim)
                 {
                     m_anim.SetTrigger("Jump");
+                    m_audio.PlayOneShot(m_jumpSound);
                 }
                 m_rb.AddForce(Vector3.up * m_jumpPower, ForceMode.Impulse);
                 m_jumpCounter++;
@@ -106,6 +118,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
+            m_audio.PlayOneShot(m_hitSound);
             GameObject ga = other.gameObject;
             EnemyContoroller ec = ga.GetComponent<EnemyContoroller>();
             ec.DecreaseHelth();
