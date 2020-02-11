@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] AudioClip m_moveSound;
     int m_jumpCounter = 0;
     float m_nowHP;
+    float m_setDrag = 0;
     Rigidbody m_rb;
     Animator m_anim;
     AudioSource m_audio;
@@ -40,7 +41,7 @@ public class PlayerController : MonoBehaviour
         m_im.fillAmount = m_helth;
         m_nowHP = m_helth;
         m_audio = GetComponent<AudioSource>();
-        
+        m_setDrag = m_rb.drag;
 
         //m_HPslider.value = m_helth;
        // m_skilPoint = GameObject.Find("SkilPointManager");
@@ -96,6 +97,7 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetButtonDown("Jump") && IsGrounded() && m_jumpCounter < m_jumpLimit)
             {
+                
                 if (m_anim)
                 {
                     m_anim.SetTrigger("Jump");
@@ -103,6 +105,14 @@ public class PlayerController : MonoBehaviour
                 }
                 m_rb.AddForce(Vector3.up * m_jumpPower, ForceMode.Impulse);
                 m_jumpCounter++;
+            }
+            if (!IsGrounded())
+            {
+                m_rb.drag = 0f;
+            }
+            else
+            {
+                m_rb.drag = m_setDrag;
             }
             if (Input.GetKey("p"))
             {
@@ -112,6 +122,7 @@ public class PlayerController : MonoBehaviour
 
 
         m_jumpCounter = 0;
+        
     }
 
     private void OnTriggerEnter(Collider other)
