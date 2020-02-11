@@ -22,9 +22,9 @@ public class CameraRay : MonoBehaviour
         m_targetDis = Vector3.Distance(transform.position, m_target.transform.position);
         
         Vector3 lookTargetPos = transform.position;
-        {
+        
             Vector3 cameraPos = m_defoltPos;
-            {
+            
                 Vector3 targetDir = (m_target.transform.position - lookTargetPos).normalized;
                 float targetDis = m_targetDis - 0.5f;
 
@@ -33,11 +33,12 @@ public class CameraRay : MonoBehaviour
                 bool isHit = Physics.Raycast(lookTargetPos, targetDir, out m_hitInfo, targetDis, m_hitLayer);
                 if (isHit)
                 {
+                    Vector3 hitpos = m_hitInfo.point;
                     Debug.Log("hit");
-                    transform.position = m_hitInfo.transform.position;
+                    transform.position = hitpos;
                 }
-            }
+            
             transform.localPosition = m_defoltPos;
-        }
+        
     }
 }
